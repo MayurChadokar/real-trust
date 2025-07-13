@@ -13,9 +13,9 @@ const {cloudinaryConnect} = require('./utiles/cloudinaryConfig');
 
 const app = express();
 app.use(cors({
-    origin: 'http://localhost:3000',
+    origin: '*',
     credentials: true
-  }));
+}));
   
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -25,7 +25,7 @@ app.use('/api/contact', contactRoutes);
 app.use('/api/subscriber', subscriberRoutes);
 dbconnect();
 cloudinaryConnect();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
